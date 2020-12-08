@@ -6,12 +6,14 @@ import MoviePage from './pages/movieDetailsPage'
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"    // CHANGED
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
+import SiteHeader from './components/siteHeader'
 
 const App = () => {
     return (
       <BrowserRouter>
       <div className="jumbotron">
         <div className="container-fluid">
+        <SiteHeader />      {/* New Header  */}
           <ul className="navbar-nav text-black">
             <li className="nav-item">
               <Link className="nav-link " to="/">
