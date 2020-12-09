@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom" 
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
+import UpcomingMoviePage from "./pages/upcomingMoviePage";
 
 const App = () => {
     return (
@@ -25,9 +26,15 @@ const App = () => {
                 Favorites
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link " to="/movies/upcoming">
+                Upcoming
+              </Link>
+            </li>
           </ul>
           <Switch>
             <Route path="/reviews/:id" component={MovieReviewPage} />
+            <Route path="/movies/upcoming" component={UpcomingMoviePage}/>
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route path="/movies/:id" component={MoviePage} />
             <Route path="/" component={HomePage} />
