@@ -21,7 +21,6 @@ const App = () => {
         <div className="container-fluid">
           <MoviesContextProvider>
             <GenresContextProvider>
-              <UpcomingMovieContextProvider>
           <Switch>
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
@@ -31,7 +30,6 @@ const App = () => {
             <Route path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>
-          </UpcomingMovieContextProvider>
           </GenresContextProvider> 
           </MoviesContextProvider>
         </div>
