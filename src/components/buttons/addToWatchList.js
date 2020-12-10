@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 
-const AddToWatchListButton = ({ upcoming }) => {
+const AddToWatchListButton = ({ movie }) => {
   const context = useContext(MoviesContext);
 
   const handleAddToWatchList = e => {
     e.preventDefault();
-    context.AddToWatchList(upcoming.id);
+    context.addToWatchList(movie.id);
   };
   return (
     <button
