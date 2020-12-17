@@ -11,11 +11,7 @@ const reducer = (state, action) => {
           m.id === action.payload.movie.id ? { ...m, favorite: true } : m
         ),
 
-        topRated: state.topRated.map((m) =>
-          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
-        ),
-
-        upcoming: [...state.upcoming], popular:[...state.popular], nowPlaying:[...state.nowPlaying],
+        upcoming: [...state.upcoming], popular:[...state.popular], nowPlaying:[...state.nowPlaying], topRated:[...state.topRated],
       };
       case "add-watchlist":
       return {
@@ -30,7 +26,7 @@ const reducer = (state, action) => {
       //  m.id === action.payload.movie.id ? { ...m, watchlist: true } : m
      // ),
 
-        movies: [...state.movies], topRated:[...state.topRated], nowPlaying:[...state.nowPlaying],
+        movies: [...state.movies], topRated:[...state.topRated], nowPlaying:[...state.nowPlaying], popular:[...state.popular],
       };
     case "load":
       return { movies: action.payload.movies, upcoming: [...state.upcoming], topRated:[...state.topRated], popular:[...state.popular],nowPlaying:[...state.nowPlaying] };
