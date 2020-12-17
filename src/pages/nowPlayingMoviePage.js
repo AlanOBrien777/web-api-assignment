@@ -3,21 +3,21 @@ import PageTemplate from '../components/templateMovieListPage'
 import {MoviesContext} from '../contexts/moviesContext'
 import AddToWatchListButton from '../components/buttons/addToWatchList'
 
-const PopularPage = () => {
+const NowPlayingPage = () => {
 const context = useContext(MoviesContext);
-const movies = context.popular.filter((m) => { // New
+const movies = context.nowPlaying.filter((m) => { // New
 return !("watchlist" in m);
 });
 
 return (
 <PageTemplate
-    title="Popular Movies"
+    title="Now Playing Movies"
     movies={movies}
-    action={(popular) => {
-    return <AddToWatchListButton movie={popular} />;
+    action={(nowPlaying) => {
+    return <AddToWatchListButton movie={nowPlaying} />;
     }}
 />
 );
 };
 
-export default PopularPage;
+export default NowPlayingPage;

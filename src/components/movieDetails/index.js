@@ -32,16 +32,16 @@ export default ({ movie }) => {
         ))}
       </ul>
 
-      <ul className="list-group list-group-horizontal">
+      {/* <ul className="list-group list-group-horizontal">
         <li key="gh" className="list-group-item list-group-item-dark">
           Providers
         </li>
-        {movie.providers.map(p => (
-          <li key={p.name} className="list-group-item">
-            {p.name}
+        {movie.provider.map(g => (
+          <li key={g.name} className="list-group-item">
+            {g.name}
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       <ul className="list-group list-group-horizontal">
         <li key="slh" className="list-group-item list-group-item-dark">
