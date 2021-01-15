@@ -1,9 +1,12 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
+import upcomingRouter from './api/upcoming';
+import nowPlayingRouter from './api/nowPlaying';
+import topRatedRouter from './api/topRated';
 import bodyParser from 'body-parser';
 import './db';
-import {loadUsers, loadMovies} from './seedData';
+import {loadUsers, loadMovies, loadUpcoming, loadNowPlaying, loadTopRated} from './seedData';
 import usersRouter from './api/users';
 import session from 'express-session';
 //import authenticate from './authenticate';
@@ -25,6 +28,9 @@ const errHandler = (err, req, res,) => {
 if (process.env.SEED_DB) {
   loadUsers();
   loadMovies();
+  loadUpcoming();
+  loadNowPlaying();
+  loadTopRated();
 }
 
 
@@ -48,6 +54,12 @@ app.use(passport.initialize());
 app.use('/api/users', usersRouter);
 
 app.use('/api/movies', moviesRouter);
+
+app.use('/api/upcoming', upcomingRouter);
+
+app.use('/api/nowPlaying', nowPlayingRouter);
+
+app.use('./api/topRated',topRatedRouter);
 
 app.use(errHandler);
 
