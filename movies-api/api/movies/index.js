@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  getMovies, getMovie, getMovieReviews, getGenres
+  getMovies, getMovie, getMovieReviews, getGenres 
 } from '../tmdb-api';
 import movieModel from '..//movies/movieModel';
 import userModel from '..//users/userModel';
@@ -8,8 +8,12 @@ import userModel from '..//users/userModel';
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    movieModel.find().then(movies => res.status(200).send(movies)).catch(next);
-  });
+  try{
+  movieModel.find().then(movies => res.status(200).send(movies))}
+catch(next){
+  next();
+}
+});
 
   router.get('/:id', (req, res, next) => {
     const id = parseInt(req.params.id);
